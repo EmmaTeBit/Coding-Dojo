@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <title>Result</title>
+</head>
+<body>
+    <div class="card mx-auto col-3 mt-4 bg-dark bg-gradient p-4 rounded">
+        <h1 class="card-tittle text-warning text-center">Dojo Survey Results</h1>
+        <div class="text-white">
+            <p class="card-text">Name: {{session['name']}}</p>
+            <p class="card-text">Dojo Location: {{session['location']}}</p>
+            <p class="card-text">Favorite Language: {{session['language']}}</p>
+            <p class="card-text">Comments: {{session['comments']}}</p>
+            <hr>
+            <a class="btn btn-primary btn-lg btn-block" href="/">Go Back</a>
+        </div>
+    </div>
+</body>
+</html>
