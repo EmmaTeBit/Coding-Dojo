@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report a sight</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- ========= ========= =========NAV========= ========= ========= -->
+    <div class="d-flex justify-content-between toast-header">
+
+        <div class="fs-1 text-primary">Sasquatch Websighting</div>
+        <div>
+            <div class="fs-3 text-primary mx-4">{{user.first_name}} {{user.last_name}}</div>
+            <div class="d-flex justify-content-end">
+                <div>
+                    <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mt-2">
+            <a href="/logout" class="btn btn-primary">Logout</a>
+            </div>
+        </div>
+    </div>
+    <!-- ========= ========= =========Form========= ========= ========= -->
+    <form action="/report/sighting" method="post" class="col-11 p-4 my-4 bg-light text-dark mx-auto">
+    <!-- ========= ========= =========Form========= ========= ========= -->
+        {% with messages = get_flashed_messages(category_filter=['sighting']) %}
+            {% if messages %}
+            <div class="alert alert-danger" role="alert">
+                <strong>Flash</strong>
+                    {% for message in messages %}
+                    <p>{{message}}</p>
+                    {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+
+        <h1>Report a Sighting</h1>
+        <div class="d-flex justify-content-between col-9">
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" name="location" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="description">What Happened:</label>
+                    <textarea name="description"  cols="30" rows="5" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label for="date_of_sighting">Date of Sighting:</label>
+                    <input type="date" name="date_of_sighting" class="form-control mb-3">
+                </div>
+                <label for="num_of_sasquatch"># of Sasquatches:</label>
+                <div class="d-flex justify-content-start mt-3">
+                    <input type="number" name="num_of_sasquatch" value="0">
+                </div>
+            </div>
+            
+        </div>
+        <input type="submit" value="Report" class="btn btn-primary mt-3">
+
+    <!-- ========= ========= =========Form========= ========= ========= -->
+    </form>
+    <!-- ========= ========= =========Form========= ========= ========= -->
+
+</body>
+</html>
