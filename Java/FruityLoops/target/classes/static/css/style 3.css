@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.container {
+	margin: 40px;
+	padding: 10px;
+}
+h1 {
+	text-align: center;
+	padding: 10px;
+}
+
