@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Users Dashboard</title>
+</head>
+
+<body>
+    <!-- ========= ========= =========NAV========= ========= ========= -->
+    <div class="d-flex justify-content-between toast-header">
+        <div class="fs-1 text-primary">Coding Dojo Wall</div>
+        <div class="d-flex justify-content-evenly">
+            <div class="fs-3 text-primary mx-4">Welcome, {{user.first_name}} {{user.last_name}}</div>
+            <div class="mx-4"><a href="/logout" class="btn btn-primary">Logout</a></div>
+        </div>
+    </div>
+    <!-- ========= ========= =========DIV 1========= ========= ========= -->
+    <div class="d-flex justify-content-center">
+        <div>
+    <!-- ========= ========= =========DASHBOARD========= ========= ========= -->
+            <div class="main">
+                <div class="toast fade show container mt-4">
+                    <div class="toast-header fs-5">Dashboard</div>
+                    
+                    <div class="toast-body">
+                        <div class="form-group">
+                            <label for="first_name">First Name: {{user.first_name}}</label>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="last_name">Last Name: {{user.last_name}}</label>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="email">Email: {{user.email}}</label>
+                        </div>
+                        <div class="form-group mt-3">
+                            <label for="created_at">Created on: {{user.created_at}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ========= ========= =========POST A Message========= ========= ========= -->
+            <!-- <div class="main">
+                <div class="toast fade show container mt-4">
+                    <div class="toast-header fs-5">POST</div>
+                    <div class="toast-body">
+                        <h6>What's on your mind?</h6>
+                        <p>Create a new Post:</p>
+
+                        <textarea class="form-control" name="post" cols="50" rows="5"></textarea>
+                        <div class="d-flex justify-content-end">
+                            <input type="submit" value="Publish" class="btn btn-primary mt-3">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        <!-- ========= ========= =========END DIV 1========= ========= ========= -->
+        </div>
+        <!-- ========= ========= =========MY MESSAGES========= ========= ========= -->
+        <div class="main">
+            <div class="toast fade show container mt-4">
+                <div class="toast-header fs-5">My Messages ({{messages|length}}) new</div>
+                {% for message in messages %}
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <p class="card-title"><u>{{message.sender}} said {{message.time_span()}}</u>:</p>
+                            <p class="card-text">{{message.content}}</p>
+                        </div>
+                    </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="/destroy/message/{{message.id}}" class="btn btn-primary">Delete</a>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- ========= ========= =========SEND MESSAGES========= ========= ========= -->
+        <div class="main">
+            <div class="toast fade show container mt-4">
+                <div class="toast-header fs-5">Send Messages</div>                
+                {% for u in users %}
+                    {% if u.id != session.user_id %}
+                    <form class=" p-2"action="/send_message" method="post">
+                        <input type="hidden" name="sender_id" value={{session.user_id}}>
+                        <input type="hidden" name="receiver_id" value={{u.id}}>
+                        <label for="receiver_id">Message {{u.first_name}}:</label>
+                        <textarea class="form-control" name="content" id="" cols="30" rows="3"></textarea>
+                        <div class="d-flex justify-content-end mt-3">
+                            <input type="submit" value="Send Message" class="btn btn-primary">
+                        </div> 
+                    </form>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+        <!-- ========= ========= =========Feed========= ========= ========= -->
+        <!-- <div class="main">
+            <div class="toast fade show container mt-4">
+                <div class="toast-header fs-5">My Messages ({{messages|length}}) new</div>
+                {% for message in messages %}
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <p class="card-title"><u>{{message.sender}} said {{message.time_span()}}</u>:</p>
+                            <p class="card-text">{{message.content}}</p>
+                        </div>
+                    </div>
+                        <div class="d-flex justify-content-end">
+                            <a href="/destroy/message/{{message.id}}" class="btn btn-primary">Delete</a>
+                        </div>
+                {% endfor %}
+            </div>
+        </div> -->
+    <!-- ========= ========= =========DIV 1========= ========= ========= -->
+    </div>
+</body>
+
+</html>
