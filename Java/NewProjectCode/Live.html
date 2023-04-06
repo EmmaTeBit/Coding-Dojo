@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"></head>
+<body>
+  <section class="vh-100 gradient-custom">
+    <div class=" py-5 d-flex">
+      <div class="row justify-content-center align-items-center">
+        <div class="col-12 col-lg-9 col-xl-7">
+          <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+            <div class="card-body">
+				<h1 class="text-center h1 fw-bold">Welcome!</h1>
+				<p class="text-center">Join our growing community.</p>
+<!--------------------------REGISTER----------------------------------------->
+<form:form action="/register" method="post" modelAttribute="newUser">
+	<label class="form-label">Username</label>
+		<form:errors path="userName" />
+		<form:input path="userName" class="form-control form-control-lg"/>
+
+	<label class="form-label">Email</label>
+
+		<form:errors path="email"/>
+		<form:input path="email" class="form-control form-control-lg"/>
+
+	<label class="form-label">First Name</label>
+		<form:errors path="password"/>
+		<form:input path="password" class="form-control form-control-lg"/>
+
+	<label class="form-label">Confirm Password</label>
+		<form:errors path="confirm"/>
+		<form:input path="confirm" class="form-control form-control-lg"/>
+</form:form>
+<!--------------------------Login----------------------------------------->
+<form:form action="/login" method="post" modelAttribute="newLogin">
+	<label class="form-label">Email</label>
+		<form:errors path="email" />
+		<form:input path="email" class="form-control form-control-lg"/>
+
+	<label class="form-label">Password</label>
+		<form:errors path="password"/>
+		<form:input path="password" class="form-control form-control-lg"/>
+</form:form>
+<!------------------------------------------------------------------->
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+ <!-----------------------CARDBODY LOGIN-------------------------------------------->
+
+<div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+	<div class="card-body p-4 p-md-5">
+		<h1 class="text-center h1 fw-bold">Welcome!</h1>
+		<p class="text-center">Join our growing community.</p>
+<!--------------------------Login----------------------------------------->
+<form:form action="/login" method="post" modelAttribute="newLogin">
+	<label class="form-label">Email</label>
+		<form:errors path="email" />
+		<form:input path="email" class="form-control form-control-lg"/>
+
+	<label class="form-label">Password</label>
+		<form:errors path="password"/>
+		<form:input path="password" class="form-control form-control-lg"/>
+</form:form>
+<!------------------------------------------------------------------->
+			</div>
+		</div>
+	</div>
+  </section>

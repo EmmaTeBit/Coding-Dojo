@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isErrorPage="true" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>New Ninja</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container mt-4">
+<!------------------------------------------------------------------->
+<div class="mb-3">
+	<form:form method="post" action="/ninja/createNinja" modelAttribute="ninja">
+<!------------------------------------------------------------------->
+	<h1>Create Ninja</h1>
+		<form:label path="dojo">Dojo</form:label>
+		<form:errors path="dojo"/>
+		
+		<form:select path="dojo" class="form-select w-50">
+			<c:forEach items="${allDojos}" var="dojo">
+				<option value="${dojo.id}">${dojo.name}</option>
+			</c:forEach>
+		</form:select>
+</div>
+<div class="mb-3">
+		<form:label path="firstName">First Name</form:label>
+		<form:errors path="firstName"/>
+		<form:input path="firstName" class="form-control w-50"/>
+</div>
+<div class="mb-3">
+		<form:label path="lastName">Last Name</form:label>
+		<form:errors path="lastName"/>
+		<form:input path="lastName" class="form-control w-50"/>
+</div>
+<div class="mb-3">
+		<form:label path="age">Age</form:label>
+		<form:errors path="age"/>
+		<form:input type="number" path="age" class="form-control w-50"/>
+</div>
+		<button class="btn btn-primary mt-2">Create Ninja</button>
+<!------------------------------------------------------------------->
+	</form:form>
+<!------------------------------------------------------------------->
+
+
+
+
+
+
+
+<!------------------------------------------------------------------->
+</div>
+</body>
+</html>

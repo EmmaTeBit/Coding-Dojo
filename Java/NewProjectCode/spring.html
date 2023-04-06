@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isErrorPage="true" %>  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login and Registration</title>
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="container mt-4">
+<!--------------------------REGISTER----------------------------------------->
+<form:form action="/register" method="post" modelAttribute="newUser">
+	<table>
+		<thead>
+			<tr>
+				<th>Register</th>
+			</tr>
+		</thead>
+		<tr>
+			<td>Username:</td>
+			<td>
+				<form:errors path="userName"/>
+				<form:input path="userName"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td>
+				<form:errors path="email"/>
+				<form:input path="email"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Password:</td>
+			<td>
+				<form:errors path="password"/>
+				<form:input path="password"/>
+			</td>
+		</tr>
+		<tr>
+			<td>Confirm PW:</td>
+			<td>
+				<form:errors path="confirm"/>
+				<form:input path="confirm"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan=2><input class="input" type="submit" value="Submit"/></td>
+		</tr>
+	</table>
+</form:form>
+<!--------------------------Login----------------------------------------->
+<form:form action="/login" method="post" modelAttribute="newLogin">
+
+	<table>
+		<thead>
+	    	<tr>
+	            <td colspan="2">Log In</td>
+	        </tr>
+	    </thead>
+	    <thead>
+	        <tr>
+	            <td class="float-left">Email:</td>
+	            <td class="float-left">
+	            	<form:errors path="email" class="text-danger"/>
+					<form:input class="input" path="email"/>
+	            </td>
+	        </tr>
+	        <tr>
+	            <td class="float-left">Password:</td>
+	            <td class="float-left">
+	            	<form:errors path="password" class="text-danger"/>
+					<form:input class="input" path="password"/>
+	            </td>
+	        </tr>
+	        <tr>
+	        	<td colspan=2><input class="input" type="submit" value="Submit"/></td>
+	        </tr>
+	    </thead>
+	</table>
+</form:form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------------------------------------------------------------------->
+</div>
+</head>
+<body>
+
+</body>
+</html>
