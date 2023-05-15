@@ -1,0 +1,149 @@
+* {
+  font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif;
+}
+/* ------------------ */
+/* DASHBOARD */
+.dashboard-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.dashboard {
+  width: 800px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* ------------------ */
+/* DETAIL JSX */
+.show-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  /* height: 90vh; */
+}
+.show-details {
+  width: 700px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* ------------------ */
+/* NAV BAR */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.navBar-PetName {
+  display: flex;
+  align-items: end;
+}
+.img-welcome {
+  display: flex;
+  align-items: center;
+}
+.navBar-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ------------------ */
+.error-message {
+  color: red;
+  font-size: 12px;
+  /* ------------------ */
+}
+.petIcon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.petDashboardImage {
+  width: 140px;
+  height: 160px;
+}
+.petIconImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+/* ------------------ */
+/* BUTTON */
+.button-62 {
+  background-color: #333;
+  color: #fff;
+  padding: 6px 24px;
+  border: none;
+  border-radius: 5px;
+  /* box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5); */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  text-decoration: none; /* Added to remove underline */
+}
+
+.button-62:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  background-color: rgb(128, 95, 247);
+}
+
+.button-62:active {
+  transform: translateY(0.5em);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.edit-buttons {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+}
+/* ------------------ */
+
+/* -----REGISTRATION AND LOGIN------------- */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.login {
+  width: 500px;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  height: 460px;
+}
+
+.login:not(:last-child) {
+  margin-right: 20px;
+}
+
+/* ------------------ */
+
+.show-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.show-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+/* Makes it gray */
+.show-duration {
+  font-size: 14px;
+  color: #888888;
+}
